@@ -7,8 +7,7 @@ from src.backend.cosmic_objects import Satellite, CosmicObject
 class Rocket:
     def __init__(self, image: pygame.Surface, start_point: Satellite, speed: float):
         self.image = image
-        self.rect = self.image.get_rect()
-        self.rect.topleft = (start_point.x, start_point.y)
+        self.rect = self.image.get_rect(center=(start_point.x, start_point.y))
 
         self.target = start_point
         self.direction = 0
@@ -19,11 +18,11 @@ class Rocket:
         self.is_clicked = False
 
     def draw(self, window: pygame.Surface, font: pygame.font.Font):
-        if self.distance > 15:
+        if self.distance > 25:
             x = self.rect.x + window.get_width() / 2
             y = self.rect.y + window.get_height() / 2
 
-            rotated_image = pygame.transform.rotate(self.image, 1.2 * abs(self.direction) * 180 / math.pi)
+            rotated_image = pygame.transform.rotate(self.image, abs(math.degrees(self.direction)))
 
             rocket = window.blit(rotated_image, (x, y))
 
