@@ -1,7 +1,7 @@
 import math
 import pygame
 
-from src.backend.cosmic_objects import Satellite
+from src.backend.cosmic_objects import Satellite, CosmicObject
 
 
 class Rocket:
@@ -40,7 +40,7 @@ class Rocket:
             if pygame.mouse.get_pressed()[0] == 1 and not rocket.collidepoint(pos):
                 self.is_clicked = False
 
-    def set_target(self, target: Satellite):
+    def set_target(self, target: CosmicObject):
         self.target = target
 
     def update(self):

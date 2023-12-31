@@ -12,6 +12,9 @@ class CosmicObject:
 
         self.is_clicked = False
 
+    def draw(self, window: pygame.Surface, font: pygame.font.Font):
+        pass
+
     def update(self):
         pass
 
@@ -41,7 +44,9 @@ class Star(CosmicObject):
 
 
 class Satellite(CosmicObject):
-    def __init__(self, name: str, x: float, y: float, radius: int, color: tuple[int, int, int], parent: CosmicObject, distance: float, speed: float, threshold: int = 1000):
+    def __init__(self, name: str, x: float, y: float, radius: int, color: tuple[int, int, int], parent: CosmicObject,
+                 distance: float, speed: float, threshold: int = 1000):
+
         super().__init__(name, x, y, radius, color)
 
         self.parent = parent
