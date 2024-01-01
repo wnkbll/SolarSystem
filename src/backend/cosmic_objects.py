@@ -81,11 +81,11 @@ class Satellite(CosmicObject):
 
         pos = pygame.mouse.get_pos()
         if circle.collidepoint(pos):
-            if pygame.mouse.get_pressed()[0] == 1 and self.is_clicked is False:
+            if pygame.mouse.get_pressed()[0] == 1 and not self.is_clicked:
                 self.is_clicked = True
                 text = font.render(f"{self.name}", 1, (255, 255, 255))
                 window.blit(text, (x + text.get_width() / 2, y + text.get_height() / 2))
-        if self.is_clicked is True:
+        if self.is_clicked:
             text = font.render(f"{self.name}", 1, (255, 255, 255))
             window.blit(text, (x + text.get_width() / 2, y + text.get_height() / 2))
 
