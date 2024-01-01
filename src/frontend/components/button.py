@@ -16,7 +16,7 @@ class Button:
         self.args = args
         self.is_clicked = False
 
-    def draw(self, window: pygame.Surface):
+    def draw(self, window: pygame.Surface) -> None:
         pos = pygame.mouse.get_pos()
 
         if self.rect.collidepoint(pos):

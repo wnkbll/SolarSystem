@@ -1,23 +1,23 @@
 import math
 import pygame
 
-from src.backend.cosmic_objects import Satellite, CosmicObject
+from src.backend.cosmic_objects import Satellite
 
 
 class Rocket:
     def __init__(self, image: pygame.Surface, start_point: Satellite, speed: float):
-        self.image = image
-        self.rect = self.image.get_rect(center=(start_point.x, start_point.y))
+        self.image: pygame.Surface = image
+        self.rect: pygame.Rect = self.image.get_rect(center=(start_point.x, start_point.y))
 
-        self.target = start_point
-        self.direction = 0
-        self.distance = 0
+        self.target: Satellite = start_point
+        self.direction: float = 0
+        self.distance: float = 0
 
-        self.speed = speed
+        self.speed: float = speed
 
-        self.is_clicked = False
+        self.is_clicked: bool = False
 
-    def draw(self, window: pygame.Surface, font: pygame.font.Font):
+    def draw(self, window: pygame.Surface, font: pygame.font.Font) -> None:
         if self.distance > 25:
             x = self.rect.x + window.get_width() / 2
             y = self.rect.y + window.get_height() / 2
@@ -27,11 +27,10 @@ class Rocket:
             rocket = window.blit(rotated_image, (x, y))
 
             pos = pygame.mouse.get_pos()
-            if rocket.collidepoint(pos):
-                if pygame.mouse.get_pressed()[0] == 1 and self.is_clicked is False:
-                    self.is_clicked = True
-                    text = font.render(f"{round(self.distance, 3)}", 1, (255, 255, 255))
-                    window.blit(text, (x + text.get_width() / 2, y + text.get_height() / 2))
+            if rocket.collidepoint(pos) and pygame.mouse.get_pressed()[0] == 1 and self.is_clicked is False:
+                self.is_clicked = True
+                text = font.render(f"{round(self.distance, 3)}", 1, (255, 255, 255))
+                window.blit(text, (x + text.get_width() / 2, y + text.get_height() / 2))
             if self.is_clicked is True:
                 text = font.render(f"{round(self.distance, 3)}", 1, (255, 255, 255))
                 window.blit(text, (x + text.get_width() / 2, y + text.get_height() / 2))
@@ -39,10 +38,10 @@ class Rocket:
             if pygame.mouse.get_pressed()[0] == 1 and not rocket.collidepoint(pos):
                 self.is_clicked = False
 
-    def set_target(self, target: CosmicObject):
+    def set_target(self, target: Satellite) -> None:
         self.target = target
 
-    def update(self):
+    def update(self) -> None:
         dx_target = self.target.x - self.rect.x
         dy_target = self.target.y - self.rect.y
 

@@ -1,21 +1,23 @@
 import math
 import pygame
 
+from src.backend.type_aliases import Color, Orbit
+
 
 class CosmicObject:
     def __init__(self, name: str, x: float, y: float, radius: int, color: tuple[int, int, int]):
-        self.name = name
-        self.x = x
-        self.y = y
-        self.radius = radius
-        self.color = color
+        self.name: str = name
+        self.x: float = x
+        self.y: float = y
+        self.radius: int = radius
+        self.color: Color = color
 
-        self.is_clicked = False
+        self.is_clicked: bool = False
 
-    def draw(self, window: pygame.Surface, font: pygame.font.Font):
+    def draw(self, window: pygame.Surface, font: pygame.font.Font) -> None:
         pass
 
-    def update(self):
+    def update(self) -> None:
         pass
 
 
@@ -23,7 +25,7 @@ class Star(CosmicObject):
     def __init__(self, name: str, x: float, y: float, radius: int, color: tuple[int, int, int]):
         super().__init__(name, x, y, radius, color)
 
-    def draw(self, window: pygame.Surface, font: pygame.font.Font):
+    def draw(self, window: pygame.Surface, font: pygame.font.Font) -> None:
         x = self.x + window.get_width() / 2
         y = self.y + window.get_height() / 2
 
@@ -49,16 +51,16 @@ class Satellite(CosmicObject):
 
         super().__init__(name, x, y, radius, color)
 
-        self.parent = parent
-        self.distance_to_parent = distance
+        self.parent: CosmicObject = parent
+        self.distance_to_parent: float = distance
 
-        self.i = 0
-        self.speed = speed
+        self.i: int = 0
+        self.speed: float = speed
 
-        self.orbit = []
-        self.threshold = threshold
+        self.orbit: Orbit = []
+        self.threshold: int = threshold
 
-    def draw(self, window: pygame.Surface, font: pygame.font.Font):
+    def draw(self, window: pygame.Surface, font: pygame.font.Font) -> None:
         x = self.x + window.get_width() / 2
         y = self.y + window.get_height() / 2
 
@@ -90,7 +92,7 @@ class Satellite(CosmicObject):
         if pygame.mouse.get_pressed()[0] == 1 and not circle.collidepoint(pos):
             self.is_clicked = False
 
-    def update(self):
+    def update(self) -> None:
         self.x = self.parent.x + math.cos(self.i * math.pi / 180) * self.distance_to_parent
         self.y = self.parent.y + math.sin(self.i * math.pi / 180) * self.distance_to_parent
 
