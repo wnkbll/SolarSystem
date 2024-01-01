@@ -3,7 +3,7 @@ import pygame
 from src.backend.cosmic_objects import CosmicObject
 from src.backend.rocket import Rocket
 
-from src.frontend.modules import Images, CosmicObjects
+from src.frontend.data import Images, CosmicObjects
 from src.frontend.components import Button
 
 
