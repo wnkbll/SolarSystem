@@ -1,10 +1,10 @@
 import pygame
 
-from src.frontend.modules import Images, CosmicObjects
 from src.backend.cosmic_objects import CosmicObject
 from src.backend.rocket import Rocket
 
-from src.frontend.components.button import Button
+from src.frontend.modules import Images, CosmicObjects
+from src.frontend.components import Button
 
 
 class Gui:
