@@ -1,4 +1,4 @@
-from src.frontend.init_gui import Gui
+from src.frontend.gui import Gui
 
 
 def main():
