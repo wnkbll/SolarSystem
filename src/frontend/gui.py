@@ -51,7 +51,7 @@ class Gui:
             self.window.fill((0, 0, 0))
 
             for event in pygame.event.get():
-                if any((event.type == pygame.QUIT, event.type == pygame.KEYDOWN)) and event.key == pygame.K_ESCAPE:
+                if event.type == pygame.QUIT or event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
                     is_running = False
 
             for button in self.buttons:
