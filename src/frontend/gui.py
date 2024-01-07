@@ -20,7 +20,7 @@ class Gui:
 
         self.cosmic_objects: list[CosmicObject] = []
         self.buttons: list[Button] = []
-        self.rocket: Rocket = Rocket(pygame.image.load("images/rocket.png"), CosmicObjects.earth, 3)
+        self.rocket: Rocket = Rocket(pygame.image.load("../images/rocket.png"), CosmicObjects.earth, 3)
 
         self.init_cosmic_objects()
         self.init_buttons()
