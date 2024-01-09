@@ -30,12 +30,12 @@ class CosmicObjects:
 
 
 class Images:
-    mercury_image = pygame.image.load("../images/mercury.png")
-    venus_image = pygame.image.load("../images/venus.png")
-    earth_image = pygame.image.load("../images/earth.png")
-    moon_image = pygame.image.load("../images/moon.png")
-    mars_image = pygame.image.load("../images/mars.png")
-    jupiter_image = pygame.image.load("../images/jupiter.png")
-    saturn_image = pygame.image.load("../images/saturn.png")
-    uranus_image = pygame.image.load("../images/uranus.png")
-    neptune_image = pygame.image.load("../images/neptune.png")
+    mercury_image = pygame.image.load("images/mercury.png")
+    venus_image = pygame.image.load("images/venus.png")
+    earth_image = pygame.image.load("images/earth.png")
+    moon_image = pygame.image.load("images/moon.png")
+    mars_image = pygame.image.load("images/mars.png")
+    jupiter_image = pygame.image.load("images/jupiter.png")
+    saturn_image = pygame.image.load("images/saturn.png")
+    uranus_image = pygame.image.load("images/uranus.png")
+    neptune_image = pygame.image.load("images/neptune.png")
